@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'orders/css/styles.css' %}">
+</head>
+<body>
+    <h1>Menu da Pizzaria</h1>
+
+    <h2>Pizzas</h2>
+    <ul>
+        {% for pizza in pizzas %}
+            <li>{{ pizza.name }} ({{ pizza.get_size_display }}) - R$ {{ pizza.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Subs</h2>
+    <ul>
+        {% for sub in subs %}
+            <li>{{ sub.name }} - R$ {{ sub.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Jantares</h2>
+    <ul>
+        {% for dinner in dinners %}
+            <li>{{ dinner.name }} ({{ dinner.get_size_display }}) - R$ {{ dinner.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
